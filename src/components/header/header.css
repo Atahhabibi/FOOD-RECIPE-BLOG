@@ -4,16 +4,17 @@ header {
   position: relative;
   z-index: 44;
   padding: 2rem;
+  
 }
 
-header h2 {
+header .heading {
   color: brown;
   font-size: 2.5rem;
   font-family: "Instrument Sans", sans-serif;
   font-weight: 600;
 }
 
-header h2 .Rec{
+header .heading .Rec{
   color: green;
 }
 
@@ -97,6 +98,8 @@ header.active {
   box-shadow: 0 0 4px 0 rgb(115 115 115 / 20%);
   z-index: 9999;
   background: rgb(41, 14, 14);
+  background: rgba(41, 14, 14,0.8);
+  backdrop-filter: blur(10px);
 }
 
 .nav-header .toggle-btn{

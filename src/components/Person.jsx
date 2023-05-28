@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useState } from "react"
-import personImg from '../assets/images/cheif2.jpg'
+import personImg from '../images/cheif2.jpg'
 
 const Person = () => {
 

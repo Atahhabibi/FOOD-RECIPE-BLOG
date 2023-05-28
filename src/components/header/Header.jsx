@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/images/logo.svg";
 import "./header.css";
 import { nav } from "../../assets/data/data";
 import { Link } from "react-router-dom";
@@ -19,10 +18,9 @@ export const Header = () => {
       <header className="header">
         <div className="scontainer flex">
           <div className="nav-header">
-            <h2>
-              Food <span className="Rec">Recipe</span>
-              <span className="N"> Nutrition</span>{" "}
-            </h2>
+            <Link to="/" className="heading">
+              Food <span className="Rec">Recipes</span>
+            </Link>
             <button
               onClick={() => setIsSidebarOpen(true)}
               className="toggle-btn"

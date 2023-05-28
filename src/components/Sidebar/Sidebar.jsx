@@ -1,13 +1,20 @@
 import "./Sidebar.css";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { useAppContext } from "../../Context";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = () => {
   const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
 
+  const history = useHistory();
+
   const handleSidebar = (e) => {
-    const value = e.target.dataset.item;
-      setIsSidebarOpen(false);
+    const value = e.target.dataset.id;
+    setIsSidebarOpen(false);
+
+    if (value) {
+      history.push(value);
+    }
   };
 
   return (
@@ -17,26 +24,27 @@ const Sidebar = () => {
       }`}
     >
       <div className="sidebar-header">
-      <h2>Food <span className="Rec">Recipe</span><span className="N"> Nutrition</span>   </h2>
+        <h2>
+          Food <span className="Rec">Recipe</span>
+          <span className="N"> Nutrition</span>{" "}
+        </h2>
         <button onClick={() => setIsSidebarOpen(false)}>
           <AiFillCloseSquare />
         </button>
       </div>
       <div className="side-items">
-        <button onClick={handleSidebar} >
+        <button onClick={handleSidebar} data-id="/">
           Blog
         </button>
-        <button onClick={handleSidebar} >
+        <button onClick={handleSidebar} data-id="/about">
           About
         </button>
-        <button onClick={handleSidebar} >
+        <button onClick={handleSidebar} data-id="/gallery">
           Food Gallery
         </button>
-        <button onClick={handleSidebar} >
+        <button onClick={handleSidebar} data-id="/contact">
           Contact
         </button>
-
-     
       </div>
     </div>
   );

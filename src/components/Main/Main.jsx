@@ -1,40 +1,33 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useAppContext } from "../../Context";
 import { FetchFood } from "../../API";
-import { setItemsToStorage } from "../../LocalStorage";
 import SingleBlog from "../SingleBlog";
 import { GetFoodObject } from "../../GetFoodObject";
 
 const Main = () => {
-  const { foods, setFoods, setIsLoading, isLoading,setFoodsObject,FoodsObject} = useAppContext();
+  const { foods, setFoods, setIsLoading, isLoading } = useAppContext();
   useEffect(() => {
-
     setIsLoading(true);
 
-    FetchFood('/explore').then((resp)=>{
-      console.log(resp.results.feed);
-      setFoods(resp.results.feed);
-      setIsLoading(false)
-      setItemsToStorage(resp.results.feed,'foods');
-    }).catch(error=>error)
+    FetchFood("/explore", "", "", 3)
+      .then((resp) => {
+        setFoods(resp.results.feed);
+        setIsLoading(false);
+      })
+      .catch((error) => error);
+      // eslint-disable-next-line
+  }, []);
 
-  }, [])
+  const newFoods = GetFoodObject(foods);
 
-  const newFoods=GetFoodObject(foods)
-
-  if(isLoading){
-    return <div className="loading"></div>
+  if (isLoading) {
+    return <div className="loading"></div>;
   }
-
-
-  console.log(newFoods);
-
 
   return (
     <Wrapper>
-      {newFoods?.map((item, index) => {
-
+      {newFoods?.slice(0, 6).map((item, index) => {
         return <SingleBlog key={index} {...item} />;
       })}
     </Wrapper>
@@ -42,28 +35,18 @@ const Main = () => {
 };
 
 const Wrapper = styled.div`
-padding:0 2rem;
-display: grid;
-column-gap:1.5rem;
-
-
-
-@media screen and (min-width:700px) {
-  grid-template-columns: 1fr 1fr;
-}
-
-
-@media screen and (min-width:900px) {
-
+  padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  column-gap: 1.5rem;
 
-    
-}
+  @media screen and (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-
-
-
+  @media screen and (min-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export default Main;

@@ -1,36 +1,28 @@
-import { createContext ,useContext,useReducer,useState} from "react";
-import { getItemsFromStorage } from "./LocalStorage";
+import { createContext, useContext, useState } from "react";
 
+const AppContext = createContext();
 
-const AppContext=createContext();
+export const AppProvider = ({ children }) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [foods, setFoods] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  const contextValue = {
+    setFoods,
+    foods,
+    setIsSidebarOpen,
+    isSidebarOpen,
+    setIsLoading,
+    isLoading,
+    isSidebarOpen,
+    setIsSidebarOpen,
+  };
 
-export const AppProvider=({children})=>{
+  return (
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
+  );
+};
 
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-    const [foods, setFoods] = useState(getItemsFromStorage('foods'))
-    const [isLoading, setIsLoading] = useState(true);
-
-    
-
-    const contextValue={
-   
-        setFoods,
-        foods,
-        setIsSidebarOpen,
-        isSidebarOpen,
-        setIsLoading,
-        isLoading,
-        isSidebarOpen,
-        setIsSidebarOpen,
-
-    }
-
-    return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
-}
-
-
-
-export const useAppContext=()=>{
-    return useContext(AppContext)
-}
+export const useAppContext = () => {
+  return useContext(AppContext);
+};

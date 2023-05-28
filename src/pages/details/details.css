@@ -5,13 +5,13 @@
 }
 
 .single-food-info {
-  padding:1rem;
+  padding: 1rem;
 }
 
 .single-food-img {
   width: 100%;
   object-fit: cover;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .single-type {
@@ -19,9 +19,9 @@
   text-transform: capitalize;
 }
 
-.desc{
-  font-size:1.5rem;
-  margin:2rem 0rem;
+.desc {
+  font-size: 1.5rem;
+  margin: 2rem 0rem;
 }
 
 .single-title {
@@ -29,41 +29,35 @@
   color: brown;
   font-weight: bold;
   letter-spacing: 4px;
-
 }
 
-.single-btn{
-  background:white;
+.single-btn {
+  background: white;
   color: black;
   padding: 0.6rem 1rem;
   border-radius: 10px;
   cursor: pointer;
-  background:red;
+  background: red;
   color: white;
   font-weight: 400;
   text-transform: capitalize;
   transition: all ease-in-out 0.6s;
   border: 2px solid red;
-
 }
 
-.single-btn:hover{
-  background:white;
+.single-btn:hover {
+  background: white;
   color: black;
-  border: 2px solid red ;
+  border: 2px solid red;
 }
 
-
-@media screen and (min-width:800px) {
-  
-  .single-food{
+@media screen and (min-width: 1200px) {
+  .single-food {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-
-
-  .single-food-img{
-    height:75vh;
+  .single-food-img {
+    height: 75vh;
   }
 }

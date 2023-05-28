@@ -8,7 +8,7 @@
     z-index:100000000;
     transform: translateX(-100%);
     transform: translateX(0);
-    max-width:900px;
+    max-width:1000px;
     transition: all 1s ease-in-out;
 }
 
@@ -63,7 +63,7 @@
 
 
 
-@media screen and (min-width:900px) {
+@media screen and (min-width:1000px) {
 
     .sidebar-container{
         display:none;

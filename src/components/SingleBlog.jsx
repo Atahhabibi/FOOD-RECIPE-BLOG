@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 
-import noImg from "../assets/images/no-image2.jpeg";
+import noImg from "../images/no-image2.jpeg";
 
 const SingleBlog = ({
   directionsUrl,
@@ -22,7 +22,7 @@ const SingleBlog = ({
     "Pressed Pesto Picnic Sandwich With Barilla® Creamy Genovese Pesto, Artisan Bread, Large Tomato, Basil, Salami, Prosciutto, Provolone Cheese, Mozzarella Cheese";
 
   return (
-    <Wrapper href={directionsUrl} className={`item-${index}`}>
+    <Wrapper href={directionsUrl} className={`item-${index}`} target='_blank'>
       <img src={img || noImg} alt={displayName} className="food-img" />
 
       <div className="food-info">
